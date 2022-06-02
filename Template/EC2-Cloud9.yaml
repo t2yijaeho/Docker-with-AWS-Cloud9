@@ -14,12 +14,14 @@ Resources:
       InstanceType: t2.micro
       ImageId: ubuntu-18.04-x86_64
       AutomaticStopTimeMinutes: 30
+      Tags:
+        - Key: "Name"
+          Value: "Cloud9 IDE for Docker Basics"
       #OwnerArn: String
       #Repositories: 
       #  - Repository
       #SubnetId: String
-      #Tags: 
-      #  - Tag
+
 Outputs:
   Cloud9URL:
     Description: Cloud9 Environment
