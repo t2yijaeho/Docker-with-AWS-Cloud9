@@ -36,7 +36,7 @@
     aws cloudformation create-stack \
       --stack-name Cloud9IDE \
       --template-body file://./EC2-Cloud9.yaml \
-      ParameterKey=LocalLocation,ParameterValue="<My IP>/32"
+      --parameters ParameterKey=LocalLocation,ParameterValue="<My IP>/32"
     ```
 
 4. AWS CloudFormation returns following output
