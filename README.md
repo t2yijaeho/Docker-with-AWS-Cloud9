@@ -34,7 +34,7 @@
 
     ```bash
     aws cloudformation create-stack \
-      --stack-name MigrationVM \
+      --stack-name Cloud9IDE \
       --template-body file://./EC2-Cloud9.yaml \
       ParameterKey=LocalLocation,ParameterValue="<My IP>/32"
     ```
