@@ -2,15 +2,6 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: >
   MSP T2 Docker Basics
   Amazon AWS Cloud9 Environment EC2
-Parameters:
-  LocalLocation:
-    Description: The IP address range that can be used to connect remotely to the EC2 instances
-    Type: String
-    MinLength: 9
-    MaxLength: 18
-    Default: 0.0.0.0/0
-    AllowedPattern: (\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})
-    ConstraintDescription: must be a valid IP CIDR range of the form x.x.x.x/x.
 Resources:
   Cloud9IDE:
     Type: AWS::Cloud9::EnvironmentEC2
@@ -23,25 +14,12 @@ Resources:
       InstanceType: t2.micro
       ImageId: ubuntu-18.04-x86_64
       AutomaticStopTimeMinutes: 30
-      
       #OwnerArn: String
       #Repositories: 
       #  - Repository
       #SubnetId: String
       #Tags: 
       #  - Tag
-  EC2InboundRule:
-    Type: AWS::EC2::SecurityGroupIngress
-    Properties:
-      IpProtocol: tcp
-      FromPort: 0
-      ToPort: 65535
-      CidrIp: !Ref 'LocalLocation'
-      GroupId:
-        Fn::GetAtt:
-          - Cloud9IDE
-          - GroupId
-      
 Outputs:
   Cloud9URL:
     Description: Cloud9 Environment
@@ -50,6 +28,3 @@ Outputs:
       - ''
       - - !Sub https://${AWS::Region}.console.aws.amazon.com/cloud9/ide/
         - !Ref 'Cloud9IDE'
-  PublicDNS:
-    Description: Public DNS Name of the Cloud9 EC2 instance
-    Value: !GetAtt [Cloud9IDE, PublicDnsName]
