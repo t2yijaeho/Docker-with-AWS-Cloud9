@@ -24,22 +24,15 @@
     wget https://github.com/t2yijaeho/Docker-with-AWS-Cloud9/raw/matia/Template/EC2-Cloud9.yaml
     ```
 
-2. Get your local machine public IP address in the browser
-
-    [Your public IP address](http://checkip.amazonaws.com/)
-
-3. Create an AWS CloudFormation stack
-
-    ***Change `<My IP>` to your local machine IP address (ParameterValue must be in CIDR notation)***
+2. Create an AWS CloudFormation stack
 
     ```bash
     aws cloudformation create-stack \
       --stack-name Cloud9IDE \
-      --template-body file://./EC2-Cloud9.yaml \
-      --parameters ParameterKey=LocalLocation,ParameterValue="<My IP>/32"
+      --template-body file://./EC2-Cloud9.yaml
     ```
 
-4. AWS CloudFormation returns following output
+3. AWS CloudFormation returns following output
 
     ```json
     {
@@ -47,6 +40,13 @@
     }
     ```
 
-5. Monitor the progress by the stack's events in AWS management console
+4. Monitor the progress by the stack's events in AWS management console
 
     <img src="https://github.com/t2yijaeho/Docker-with-AWS-Cloud9/blob/matia/images/CloudFormation%20Stack%20Creation%20Events.png?raw=true">
+
+
+2. Get your local machine public IP address in the browser
+
+    [Your public IP address](http://checkip.amazonaws.com/)
+
+    ***Change `<My IP>` to your local machine IP address (ParameterValue must be in CIDR notation)***
