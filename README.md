@@ -124,7 +124,7 @@
     ```
 6. Connect to `Todo` application via port 3000 in your local machine web browser
 
-    ***Change `<DNS Name>` to your Cloud9 instance public DNS nam***
+    ***Change `<DNS Name>` to your Cloud9 instance public DNS name***
     ```bash
     <DNS Name>:3000
     ```
