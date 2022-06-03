@@ -34,9 +34,6 @@
 
 3. Add inboud rule to AWS Cloud9 EC2 Security Group
 
-    Get your local machine public IP address in the browser
-    [Your public IP address](http://checkip.amazonaws.com/)
-    
     Find AWS Cloud9 EC2 Security Group ID
     ```bash
     CLOUD9_SECURITY_GROUP_ID=$(aws ec2 describe-security-groups \
@@ -47,6 +44,10 @@
     ```
     
     Add Local Machine IP address to Security Group inboud rule
+    
+    Get your local machine public IP address in the browser
+    [Your public IP address](http://checkip.amazonaws.com/)
+
     
     ***Change `<My IP>` to your local machine IP address (ParameterValue must be in CIDR notation)***
     
@@ -86,30 +87,39 @@
 
 1. Get the Docker sample source code
     ```bash
-    git clone https://github.com/docker/getting-started.git
+    git clone https://github.com/JungSangup/todo_list_manager.git app
     ```
 2. Change to application directory and list files
     ```bash
-    cd getting-started/
+    cd app/
     ls
     ```
     ```bash
-    mspuser:~/environment $ cd getting-started/
-    mspuser:~/environment/getting-started (master) $ ls
+    mspuser:~/environment $ cd app/
+    mspuser:~/environment/app (master) $ ls
     Dockerfile  Jenkinsfile  LICENSE  README.md  app  build.sh  docker-compose.yml  docs  mkdocs.yml  requirements.txt  yarn.lock
     ```    
-3. Build the app's container image named "getting-started"
+3. Build the app's container image named "docker-101"
     ```bash
-    docker build --tag getting-started .
+    docker build --tag docker-101 .
     ```
 4. Start an app container in detached(in the background) mode and mapping the port 3000 between the host and container
     ```bash
-    docker run --detach --publish 3000:3000 getting-started
+    docker run --detach --publish 3000:3000 docker-101
     ```
-5. Get the application Url
+5. Get the Cloud9 instance public DNS name
     ```bash
-    docker run --detach --publish 3000:3000 getting-started
+    aws ec2 describe-instances \
+      --filters Name=tag-key,Values=*cloud9* \
+      --query "Reservations[*].Instances[*].{Instance:PublicDnsName}" \
+      --output text
     ```
-6. 
-7. 
-    
+6. Connect to `Todo` application via port 3000 in your local machine web browser
+
+    ***Change `<DNS Name>` to your Cloud9 instance public DNS nam***
+    ```bash
+    <DNS Name>:3000
+    ```
+7. Add items and see that it works as you expect. You can mark items as complete and remove items
+
+    <img src="https://github.com/t2yijaeho/Docker-with-AWS-Cloud9/blob/matia/images/Todo%20App.png?raw=true">
