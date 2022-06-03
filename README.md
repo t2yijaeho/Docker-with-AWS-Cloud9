@@ -32,7 +32,13 @@
       --template-body file://./EC2-Cloud9.yaml
     ```
 
-3. Add inboud rule to AWS Cloud9 EC2 Security Group
+3. Verify the instance security group creation completed by the CloudFormation stack's events in AWS management console
+
+    <img src="https://github.com/t2yijaeho/Docker-with-AWS-Cloud9/blob/matia/images/SecurityGroup%20Complete.png?raw=true">
+    
+4. Add inboud rule to AWS Cloud9 EC2 Security Group
+
+    ***It may need some time to get proper Security Group ID (such as sg-01a234b567cd890ef)***
 
     Find AWS Cloud9 EC2 Security Group ID
     ```bash
@@ -58,7 +64,7 @@
       --cidr "<My IP>/32"
     ```
 
-4. Monitor the progress by the CloudFormation stack's events in AWS management console
+5. Monitor the progress by the CloudFormation stack's events in AWS management console
 
     <img src="https://github.com/t2yijaeho/Docker-with-AWS-Cloud9/blob/matia/images/CloudFormation%20Stack%20Creation%20Events.png?raw=true">
     
