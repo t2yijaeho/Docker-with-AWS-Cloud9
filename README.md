@@ -92,12 +92,20 @@
 2. Change to application directory and list files
     ```bash
     cd app/
-    ls
+    ls -al
     ```
     ```bash
     mspuser:~/environment $ cd app/
-    mspuser:~/environment/app (master) $ ls
-    Dockerfile  Jenkinsfile  LICENSE  README.md  app  build.sh  docker-compose.yml  docs  mkdocs.yml  requirements.txt  yarn.lock
+    mspmanager:~/environment/app (master) $ ls -al
+    total 204
+    drwxrwxr-x 5 ubuntu ubuntu   4096 Jun  3 04:49 .
+    drwxr-xr-x 5 ubuntu ubuntu   4096 Jun  3 04:49 ..
+    drwxrwxr-x 8 ubuntu ubuntu   4096 Jun  3 04:49 .git
+    -rw-rw-r-- 1 ubuntu ubuntu    105 Jun  3 04:49 Dockerfile
+    -rw-rw-r-- 1 ubuntu ubuntu    626 Jun  3 04:49 package.json
+    drwxrwxr-x 4 ubuntu ubuntu   4096 Jun  3 04:49 spec
+    drwxrwxr-x 5 ubuntu ubuntu   4096 Jun  3 04:49 src
+    -rw-rw-r-- 1 ubuntu ubuntu 179361 Jun  3 04:49 yarn.lock
     ```    
 3. Build the app's container image named "docker-101"
     ```bash
