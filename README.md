@@ -73,7 +73,7 @@
 
 1. Launch an AWS Cloud9 IDE from the CloudFormation stack's output
 
-    <img src="https://github.com/t2yijaeho/Docker-with-AWS-Cloud9/blob/matia/images/CloudFormation%20Stack%20Creation%20Events.png?raw=true">
+    <img src="https://github.com/t2yijaeho/Docker-with-AWS-Cloud9/blob/matia/images/Cloud9%20IDE%20URL.png?raw=true">
 
 2. To expand Terminal window choose the resize icon at the upper-right edge of the console
 
