@@ -96,7 +96,7 @@
     ```
     ```bash
     mspuser:~/environment $ cd app/
-    mspmanager:~/environment/app (master) $ ls -al
+    mspuser:~/environment/app (master) $ ls -al
     total 204
     drwxrwxr-x 5 ubuntu ubuntu   4096 Jun  3 04:49 .
     drwxr-xr-x 5 ubuntu ubuntu   4096 Jun  3 04:49 ..
