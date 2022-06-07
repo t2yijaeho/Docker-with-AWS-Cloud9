@@ -49,13 +49,12 @@
     echo $CLOUD9_SECURITY_GROUP_ID
     ```
     
-    Add Local Machine IP address to Security Group inboud rule
+5. Add Local Machine IP address to Security Group inboud rule
     
-    Get your local machine public IP address in the browser
-    [Your public IP address](http://checkip.amazonaws.com/)
-
+   Get your local machine public IP address in the browser
+   [Your public IP address](http://checkip.amazonaws.com/)
     
-    ***Change `<My IP>` to your local machine IP address (ParameterValue must be in CIDR notation)***
+   ***Change `<My IP>` to your local machine IP address (ParameterValue must be in CIDR notation)***
     
     ```bash
     aws ec2 authorize-security-group-ingress \
@@ -64,7 +63,7 @@
       --cidr "<My IP>/32"
     ```
 
-5. Monitor the progress by the CloudFormation stack's events in AWS management console
+6. Monitor the progress by the CloudFormation stack's events in AWS management console
 
     <img src="https://github.com/t2yijaeho/Docker-with-AWS-Cloud9/blob/matia/images/CloudFormation%20Stack%20Creation%20Events.png?raw=true">
     
