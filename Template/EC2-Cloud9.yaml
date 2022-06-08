@@ -11,7 +11,7 @@ Resources:
       Description: Amazon AWS Cloud9 Environment EC2 for Docker Basics
       #Configure settings
       ConnectionType: CONNECT_SSH
-      InstanceType: t2.micro
+      InstanceType: t3.medium
       ImageId: ubuntu-18.04-x86_64
       AutomaticStopTimeMinutes: 30
       #Tags:
