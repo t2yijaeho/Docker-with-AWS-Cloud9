@@ -10,13 +10,13 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
 
 1. Get an AWS CloudFormation stack template body
 
-    ```bash
+    ```console
     wget https://github.com/t2yijaeho/Docker-with-AWS-Cloud9/raw/matia/Template/EC2-Cloud9.yaml
     ```
 
 2. Create an AWS CloudFormation stack
 
-    ```bash
+    ```console
     aws cloudformation create-stack \
       --stack-name Cloud9IDE \
       --template-body file://./EC2-Cloud9.yaml
@@ -31,7 +31,8 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
     ***It may need some time to get proper Security Group ID (such as sg-01a234b567cd890ef)***
 
     Find AWS Cloud9 EC2 Security Group ID
-    ```bash
+    
+    ```console
     CLOUD9_SECURITY_GROUP_ID=$(aws ec2 describe-security-groups \
       --filters Name=group-name,Values=*Docker-Basics* \
       --query "SecurityGroups[*].[GroupId]" \
@@ -46,7 +47,7 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
     
    ***Change `<My IP>` to your local machine IP address (ParameterValue must be in CIDR notation)***
     
-    ```bash
+    ```console
     aws ec2 authorize-security-group-ingress \
       --group-id $CLOUD9_SECURITY_GROUP_ID \
       --protocol all \
@@ -70,26 +71,31 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
 
 3. Get the Docker version
 
-    ```bash
+    ```console
     docker --version
     ```
-    ```bash
+    
+    ```console
     mspuser:~/environment $ docker --version
     Docker version 20.10.16, build aa7e414
     ```
 
+
 ## 4. Run Docker sample application
 
 1. Get the Docker sample source code
-    ```bash
+
+    ```console
     git clone https://github.com/JungSangup/todo_list_manager.git app
     ```
 2. Change to application directory and list files
-    ```bash
+
+    ```console
     cd app/
     ls -al
     ```
-    ```bash
+    
+    ```console
     mspuser:~/environment $ cd app/
     mspuser:~/environment/app (master) $ ls -al
     total 204
@@ -101,28 +107,38 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
     drwxrwxr-x 4 ubuntu ubuntu   4096 Jun  3 04:49 spec
     drwxrwxr-x 5 ubuntu ubuntu   4096 Jun  3 04:49 src
     -rw-rw-r-- 1 ubuntu ubuntu 179361 Jun  3 04:49 yarn.lock
-    ```    
+    ```
+
 3. Build the app's container image named "docker-101"
-    ```bash
+
+    ```console
     docker build --tag docker-101 .
     ```
+    
 4. Start an app container in detached(in the background) mode and mapping the port 3000 between the host and container
-    ```bash
+
+    ```console
     docker run --detach --publish 3000:3000 docker-101
     ```
+    
 5. Get the Cloud9 instance public DNS name
-    ```bash
+
+    ```console
     aws ec2 describe-instances \
       --filters Name=tag-key,Values=*cloud9* \
       --query "Reservations[*].Instances[*].{Instance:PublicDnsName}" \
       --output text
     ```
+    
 6. Connect to `Todo` application via port 3000 in your local machine web browser
 
     ***Change `<DNS Name>` to your Cloud9 instance public DNS name***
-    ```bash
+    
+    ```console
     <DNS Name>:3000
     ```
+    
 7. Add items and see that it works as you expect. You can mark items as complete and remove items
 
     <img src="https://github.com/t2yijaeho/Docker-with-AWS-Cloud9/blob/matia/images/Todo%20App.png?raw=true">
+
