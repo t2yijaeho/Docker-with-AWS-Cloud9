@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: >
   MSP T2 Docker Basics
-  Amazon AWS Cloud9 Environment EC2
+  AWS Cloud9 Environment
 Resources:
   Cloud9IDE:
     Type: AWS::Cloud9::EnvironmentEC2
