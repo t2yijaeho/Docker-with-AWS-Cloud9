@@ -182,6 +182,17 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
     git clone https://github.com/JungSangup/todo_list_manager.git app
     ```
     
+    ```console
+    mspuser::~/environment $ git clone https://github.com/JungSangup/todo_list_manager.git app
+    Cloning into 'app'...
+    remote: Enumerating objects: 54, done.
+    remote: Counting objects: 100% (54/54), done.
+    remote: Compressing objects: 100% (49/49), done.
+    remote: Total 54 (delta 4), reused 54 (delta 4), pack-reused 0
+    Unpacking objects: 100% (54/54), done.
+    mspuser::~/environment $
+    ```
+    
 2. Change to application directory and list files
 
     ```console
