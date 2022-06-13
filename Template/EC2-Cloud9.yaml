@@ -3,7 +3,7 @@ Description: >
   MSP T2 Docker Basics
   AWS Cloud9 Environment
 Parameters: 
-  InstanceType: 
+  InstanceType:
     Type: String
     Default: t3.medium
     AllowedValues:
