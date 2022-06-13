@@ -2,6 +2,9 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: >
   MSP T2 Docker Basics
   AWS Cloud9 Environment
+Parameters: 
+  InstanceType: 
+    Type: 'AWS::SSM::Parameter::Value<String>'
 Resources:
   Cloud9IDE:
     Type: AWS::Cloud9::EnvironmentEC2
@@ -11,9 +14,9 @@ Resources:
       Description: Amazon AWS Cloud9 Environment EC2 for Docker Basics
       #Configure settings
       ConnectionType: CONNECT_SSH
-      InstanceType: t3.medium
+      InstanceType: !Ref InstanceType
       ImageId: ubuntu-18.04-x86_64
-      AutomaticStopTimeMinutes: 30
+      AutomaticStopTimeMinutes: 33
       #Tags:
       #  - Key: ""
       #    Value: ""
