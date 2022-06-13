@@ -16,16 +16,22 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
 
 2. Create an AWS CloudFormation stack
 
+    ***Change `<Instance Type>` to specify the Amazon EC2 instance type***
+    
+    (t3.nano, t3.micro, t3.small, t3.medium, t3.large, t3.xlarge, t2.2xlarge)
+
     ```console
     aws cloudformation create-stack \
       --stack-name Cloud9IDE \
-      --template-body file://./EC2-Cloud9.yaml
+      --template-body file://./EC2-Cloud9.yaml \
+      --parameters ParameterKey=InstanceType,ParameterValue="<Instance Type>"
     ```
     
     ```console
     [cloudshell-user@ip-10-0-123-234 ~]$ aws cloudformation create-stack \
     >   --stack-name Cloud9IDE \
-    >   --template-body file://./EC2-Cloud9.yaml
+    >   --template-body file://./EC2-Cloud9.yaml \
+    >   --parameters ParameterKey=InstanceType,ParameterValue="t3.medium"
     {
     "StackId": "arn:aws:cloudformation:kr-cntr-x:123456789012:stack/Cloud9IDE/a1b2c3d4-e5f6-78gh-9012-34ijkl56m789"
     }
