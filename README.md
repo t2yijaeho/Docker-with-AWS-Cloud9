@@ -106,7 +106,7 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
     ```
 
 
-## 4. (Optional) Resize Cloud9 Environment EBS volume
+## 4. (Optional) Resize Cloud9 Environment storage volume
 
 1. Check the Cloud9 instance's free disk space
 
@@ -130,7 +130,7 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
     /dev/loop3       47M   47M     0 100% /snap/snapd/16010
     ```
 
-2. Get an resizing Bash shell script
+2. Get a resizing script
 
     ```console
     wget https://github.com/t2yijaeho/Docker-with-AWS-Cloud9/raw/matia/Scripts/resize.sh
