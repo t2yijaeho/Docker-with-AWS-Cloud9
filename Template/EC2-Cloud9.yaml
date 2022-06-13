@@ -4,7 +4,17 @@ Description: >
   AWS Cloud9 Environment
 Parameters: 
   InstanceType: 
-    Type: 'AWS::SSM::Parameter::Value<String>'
+    Type: String
+    Default: t3.medium
+    AllowedValues:
+      - t3.nano
+      - t3.micro
+      - t3.small
+      - t3.medium
+      - t3.large
+      - t3.xlarge
+      - t2.2xlarge
+    Description: The instance type of Cloud9 Environment (default t3.medium)
 Resources:
   Cloud9IDE:
     Type: AWS::Cloud9::EnvironmentEC2
