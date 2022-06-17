@@ -13,6 +13,16 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
     ```console
     wget https://github.com/t2yijaeho/Docker-with-AWS-Cloud9/raw/matia/Template/EC2-Cloud9.yaml
     ```
+    
+    ```console
+    [cloudshell-user@ip-10-0-123-234 ~]$ wget https://github.com/t2yijaeho/Docker-with-AWS-Cloud9/raw/matia/Template/EC2-Cloud9.yaml
+    ...
+    100%[==================================================================================================>] 1,095       --.-K/s   in 0s      
+
+    2022-06-17 00:12:34 (59.0 MB/s) - ‘EC2-Cloud9.yaml’ saved [1095/1095]
+    
+    [cloudshell-user@ip-10-0-123-234 ~]$ 
+    ```
 
 2. Create an AWS CloudFormation stack
 
@@ -35,6 +45,7 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
     {
     "StackId": "arn:aws:cloudformation:kr-cntr-x:123456789012:stack/Cloud9IDE/a1b2c3d4-e5f6-78gh-9012-34ijkl56m789"
     }
+    [cloudshell-user@ip-10-0-123-234 ~]$ 
     ```
 
 3. Verify the instance security group creation completed by the CloudFormation stack's events in AWS management console
@@ -62,6 +73,7 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
     >   --output text)
     [cloudshell-user@ip-10-0-123-234 ~]$ echo $CLOUD9_SECURITY_GROUP_ID
     sg-01a234b567cd890ef
+    [cloudshell-user@ip-10-0-123-234 ~]$ 
     ```
     
 5. Add Local Machine IP address to Security Group inboud rule
@@ -83,6 +95,22 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
     >   --group-id $CLOUD9_SECURITY_GROUP_ID \
     >   --protocol all \
     >   --cidr "123.234.210.33/32"
+    {
+        "Return": true,
+        "SecurityGroupRules": [
+            {
+                "SecurityGroupRuleId": "sgr-1a2b34c56def7g890",
+                "GroupId": "sg-01a234b567cd890ef",
+                "GroupOwnerId": "123456789012",
+                "IsEgress": false,
+                "IpProtocol": "-1",
+                "FromPort": -1,
+                "ToPort": -1,
+                "CidrIpv4": "123.234.210.33/32"
+            }
+        ]
+    }
+    [cloudshell-user@ip-10-0-123-234 ~]$ 
     ```
 
 6. Monitor the progress by the CloudFormation stack's events in AWS management console
