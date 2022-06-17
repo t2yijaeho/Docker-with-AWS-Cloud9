@@ -136,7 +136,8 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
     
     ```console
     mspuser:~/environment $ docker --version
-    Docker version 20.10.16, build aa7e414
+    Docker version 20.10.17, build 100c701
+    mspuser:~/environment $ 
     ```
 
 
@@ -151,17 +152,17 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
     ```console
     mspuser:~/environment $ df -h
     Filesystem      Size  Used Avail Use% Mounted on
-    udev            473M     0  473M   0% /dev
-    tmpfs            98M  812K   97M   1% /run
-    /dev/xvda1      9.7G  7.9G  1.8G  82% /
-    tmpfs           488M     0  488M   0% /dev/shm
+    udev             16G     0   16G   0% /dev
+    tmpfs           3.2G  860K  3.2G   1% /run
+    /dev/xvda1      9.6G  8.1G  1.5G  86% /
+    tmpfs            16G     0   16G   0% /dev/shm
     tmpfs           5.0M     0  5.0M   0% /run/lock
-    tmpfs           488M     0  488M   0% /sys/fs/cgroup
+    tmpfs            16G     0   16G   0% /sys/fs/cgroup
     /dev/loop0       26M   26M     0 100% /snap/amazon-ssm-agent/5656
-    /dev/loop1       45M   45M     0 100% /snap/snapd/15904
-    /dev/loop2       56M   56M     0 100% /snap/core18/2409
-    tmpfs            98M     0   98M   0% /run/user/1000
-    /dev/loop3       47M   47M     0 100% /snap/snapd/16010
+    /dev/loop2       47M   47M     0 100% /snap/snapd/16010
+    /dev/loop1       56M   56M     0 100% /snap/core18/2409
+    /dev/xvda15     105M  4.4M  100M   5% /boot/efi
+    tmpfs           3.2G     0  3.2G   0% /run/user/1000
     mspuser:~/environment $
     ```
 
@@ -169,6 +170,14 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
 
     ```console
     wget https://github.com/t2yijaeho/Docker-with-AWS-Cloud9/raw/matia/Scripts/resize.sh
+    ```
+    
+    ```console
+    mspuser:~/environment $ wget https://github.com/t2yijaeho/Docker-with-AWS-Cloud9/raw/matia/Scripts/resize.sh
+    ...
+    resize.sh                             100%[========================================================================>]   1.76K  --.-KB/s    in 0s      
+    2022-06-17 00:12:34 (26.9 MB/s) - ‘resize.sh’ saved [1806/1806]
+    mspuser:~/environment $ 
     ```
 
 3. Run script replacing `<XX>` with the volume size in GiB
@@ -246,6 +255,7 @@ Refer to [AWS CloudShell](https://github.com/t2yijaeho/AWS-CloudShell)
     drwxrwxr-x 4 ubuntu ubuntu   4096 Jun  3 04:49 spec
     drwxrwxr-x 5 ubuntu ubuntu   4096 Jun  3 04:49 src
     -rw-rw-r-- 1 ubuntu ubuntu 179361 Jun  3 04:49 yarn.lock
+    mspuser:~/environment/app (master) $ 
     ```
 
 3. Build the app's container image named "docker-101"
